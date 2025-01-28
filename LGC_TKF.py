@@ -52,14 +52,10 @@ class LGC_TKF(torch.nn.Module):
             nn.Linear(config.transformer_out, 1),  # Output a single value for alpha_ij
             nn.Sigmoid()  # Output in range (0, 1)
         )
-#####
     def encode(self,E_0,edge):
-
         x = self.conv1(E_0, edge)
         x = x.relu()
         return self.conv2(x, edge)
-
-
 
     def trans_encode(self, x):
         ## x : torch.Size([11, 678, 32])
@@ -68,16 +64,12 @@ class LGC_TKF(torch.nn.Module):
         out = self.relu(out)
         return out
 
-
-
     def mm_simple(self,feature,pos_edge_index,neg_edge_index):
         edge_index = torch.cat([pos_edge_index,neg_edge_index],dim=-1)
         logits = (feature[edge_index[0]] * feature[edge_index[1]]).sum(dim=-1)
         logits = logits.to(self.device)
 
         return logits
-
-
 
     def mm(self, feature, pos_edge_index, neg_edge_index):
         # Concatenate positive and negative edge indices
