@@ -9,9 +9,6 @@ from torch.nn.parameter import Parameter
 from torch_geometric.nn import GCNConv,GATConv,SAGEConv 
 from utils import get_time_dif,get_link_labels,get_DAD,sparse_mx_to_torch_sparse_tensor
 
-
-
-
 class LGC_TKF(torch.nn.Module):
     def __init__(self, device, config):
         super(LGC_TKF,self).__init__()
