@@ -8,7 +8,6 @@ import time
 from torch.nn.parameter import Parameter
 from torch_geometric.nn import GCNConv,GATConv,SAGEConv 
 from utils import get_time_dif,get_link_labels,get_DAD,sparse_mx_to_torch_sparse_tensor
-###主要改进了层级传递模块，和共现模块
 
 
 
