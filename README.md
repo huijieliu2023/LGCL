@@ -8,9 +8,12 @@
 Raw data:  https://patentsview.org/download/data-download-tables
 
 Processed Data:
+
+
 CPC-L3: data/CPC-L3
-CPC-R: data/CPC-R
-CPC-G: data/CPC-G
+
+
+Due to upload capacity limitations, the CPC-R and CPC-G datasets will be made publicly available upon acceptance of the paper.
 
 
 ## Statistics of Datasets from 2010 to 2020, where $\beta$ represents homophily ratio.
