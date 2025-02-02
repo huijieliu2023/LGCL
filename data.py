@@ -83,20 +83,20 @@ def Normalize(array):
 def get_R_L3(begin=2000,end=2007):
     R=[]
     for i in range(begin,end+1):
-        R.append(scipy.sparse.load_npz(str(i)+'npz'))
+        R.append(scipy.sparse.load_npz('CPC-L3/TKF/'+str(i)+'npz'))
     return R
 
 def get_co_L3(begin=2000, end= 2007):
     co=[]
     for i in range(begin,end+1):
-        co.append(scipy.sparse.load_npz(str(i)+'npz'))
+        co.append(scipy.sparse.load_npz('CPC-L3/CO/'+str(i)+'npz'))
     return co
 
 
 def get_R_G(begin=2000,end=2007):
     R=[]
     for i in range(begin,end+1):
-        matrix = scipy.sparse.load_npz(str(i)+'npz')
+        matrix = scipy.sparse.load_npz('CPC-G/TKF/'+str(i)+'npz')
         g_indices = list(range(171232, 210079)) 
         group_matrix_csr = matrix.tocsr()
         sub_matrix_g = group_matrix_csr[g_indices, :][:, g_indices]
@@ -108,7 +108,7 @@ def get_R_G(begin=2000,end=2007):
 def get_co_G(begin=2000, end= 2007):
     co=[]
     for i in range(begin,end+1):
-        matrix = scipy.sparse.load_npz(str(i)+'npz')
+        matrix = scipy.sparse.load_npz('CPC-G/CO/'+str(i)+'npz')
         g_indices = list(range(171232, 210079)) 
         group_matrix_csr = matrix.tocsr()
         sub_matrix_g = group_matrix_csr[g_indices, :][:, g_indices]
@@ -121,7 +121,7 @@ def get_co_G(begin=2000, end= 2007):
 def get_R_random(begin=2000,end=2007):
     R=[]
     for i in range(begin,end+1):
-        matrix = scipy.sparse.load_npz(str(i)+'npz')
+        matrix = scipy.sparse.load_npz('CPC-R/TKF/'+str(i)+'npz')
         sub_matrix_gh = get_random_indices(matrix)
         R.append(sub_matrix_gh)
     return R
@@ -129,13 +129,13 @@ def get_R_random(begin=2000,end=2007):
 def get_co_random(begin=2000, end= 2007):
     co=[]
     for i in range(begin,end+1):
-        matrix = scipy.sparse.load_npz(str(i)+'npz')
+        matrix = scipy.sparse.load_npz('CPC-R/CO/'+str(i)+'npz')
         sub_matrix_gh = get_random_indices(matrix)
         co.append(sub_matrix_gh)
     return co
 
 def get_feature_L3(name='flow'):
-    with open(str(name)+'.json','r', encoding='utf-8') as fp:
+    with open('CPC-L3/Text/emb_qw_'+str(name)+'.json','r', encoding='utf-8') as fp:
         subclass_emb = []
         for line in fp:
             dic = json.loads(line)
@@ -146,7 +146,7 @@ def get_feature_L3(name='flow'):
     return subclass_emb
 
 def get_feature_random(name='flow'):
-    with open("emb_qw_random_"+str(name)+".json",'r', encoding='utf-8') as fp:
+    with open("CPC-R/Text/emb_qw_random_"+str(name)+".json",'r', encoding='utf-8') as fp:
         emb = []
         for line in fp:
             dic = json.loads(line)
@@ -156,7 +156,7 @@ def get_feature_random(name='flow'):
     return emb
 
 def get_feature_g(name='flow'):
-    with open("emb_qw_g_"+str(name)+".json",'r', encoding='utf-8') as fp:
+    with open("CPC-G/Text/emb_qw_g_"+str(name)+".json",'r', encoding='utf-8') as fp:
         emb = []
         for line in fp:
             dic = json.loads(line)
@@ -166,7 +166,7 @@ def get_feature_g(name='flow'):
     return emb
 
 def compare_get_feature_L3():
-    with open("emb_subclass_original.json",'r', encoding='utf-8') as fp:
+    with open("CPC-L3/Text/emb_subclass_original.json",'r', encoding='utf-8') as fp:
         subclass_emb = []
         for line in fp:
             dic = json.loads(line)
@@ -178,7 +178,7 @@ def compare_get_feature_L3():
 
 def compare_get_feature_G():
 
-    with open("emb_L4_original_g.json",'r', encoding='utf-8') as fp:
+    with open("CPC-G/Text/emb_L4_original_g.json",'r', encoding='utf-8') as fp:
         emb = []
         for line in fp:
             dic = json.loads(line)
@@ -189,7 +189,7 @@ def compare_get_feature_G():
 
 def compare_get_feature_random():
 
-    with open("emb_L4_original_random.json",'r', encoding='utf-8') as fp:
+    with open("CPC-R/Text/emb_L4_original_random.json",'r', encoding='utf-8') as fp:
         emb = []
         for line in fp:
             dic = json.loads(line)
