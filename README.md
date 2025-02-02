@@ -5,7 +5,8 @@
 
 ## Dataset
 
-Raw data:  https://patentsview.org/download/data-download-tables
+Raw Data: [Link](https://patentsview.org/download/data-download-tables)
+
 
 The data used for the CPC-L3 dataset has been placed in the folder above. Due to upload capacity limitations, the CPC-R and CPC-G datasets will be made publicly available upon acceptance of the paper.
 
