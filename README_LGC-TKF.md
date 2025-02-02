@@ -1,4 +1,43 @@
 Codes for "From Intra- to Inter-domain: LLM-enhanced Graph Contrastive Learning for Technological Knowledge Flow Prediction"
 
+## The architecture of LGC-TKF framework
+![frame](https://github.com/user-attachments/assets/764dffb5-4c92-455a-ba24-a0ff46fd03cc)
 
 
+## Statistics of Datasets from 2010 to 2020, where $\beta$ represents homophily ratio.
+| Dataset | \# Nodes | \# TKFs | \# TCs | \# Domains | $\beta$ |
+|---------|----------|---------|--------|------------|--------|
+| CPC-L3  | 678      | 60,153  | 32,451 | 9          | 0.26   |
+| CPC-R   | 20,000   | 460,460 | 125,126| 9          | 0.58   |
+| CPC-G   | 38,847   | 6,332,330| 2,313,910| 1        | 1      |
+
+
+## Overall Performance Evaluation on Different Datasets (%). Notably, OOM indicates the out-of-memory issue.
+
+| **Method**          | **CPC-L3 AUC** | **CPC-L3 AP** | **CPC-L3 Hits@1** | **CPC-L3 MRR** | **CPC-R AUC** | **CPC-R AP** | **CPC-R Hits@1** | **CPC-R MRR** | **CPC-G AUC** | **CPC-G AP** | **CPC-G Hits@1** | **CPC-G MRR** |
+|---------------------|---------------|---------------|--------------------|----------------|---------------|---------------|--------------------|----------------|---------------|---------------|--------------------|----------------|
+| **CN**             | 50.74          | 34.16         | 28.10              | 34.74          | 50.08         | 33.43         | 25.15              | 33.44          | 50.05         | 33.40         | 23.11              | 33.41          |
+| **PA**             | 50.16          | 33.96         | 30.85              | 41.64          | 50.09         | 33.45         | 24.05              | 33.49          | 50.17         | 33.15         | 22.15              | 33.41          |
+| **AA**             | 51.06          | 34.73         | 29.51              | 35.27          | 51.68         | 35.58         | 33.72              | 35.58          | 50.26         | 33.68         | 26.53              | 33.69          |
+| **MLP**            | 78.25          | 59.90         | 58.87              | 77.87          | 72.49         | 55.49         | 60.46              | 78.24          | 80.69         | 64.66         | 69.44              | 83.67          |
+| **GCN-Sequential** | 81.49          | 73.41         | 72.02              | 84.06          | 74.58         | 58.80         | 60.67              | 79.05          | 91.02         | 82.08         | 84.56              | 91.55          |
+| **GraphSAGE-Seq.** | 82.91          | 80.19         | 77.69              | 86.98          | 72.63         | 51.99         | 59.98              | 78.16          | 88.68         | 75.88         | 80.75              | 89.65          |
+| **GAT-Sequential** | 85.21          | 73.72         | 76.92              | 87.31          | 80.24         | 60.53         | 74.38              | 86.14          | 90.75         | 76.44         | 84.35              | 91.70          |
+| **HINormer**       | 84.95          | 74.17         | 73.12              | 78.75          | 84.05         | 75.50         | 74.09              | 85.42          | **OOM**       | **OOM**       | **OOM**            | **OOM**        |
+| **SimpleHGN**      | 87.13          | 78.02         | 81.11              | 89.68          | _91.09_       | _86.73_       | _86.26_            | _92.47_        | 91.89         | _87.04_       | _87.53_            | 92.28          |
+| **FAGCN**          | 87.35          | 79.76         | 80.51              | 89.33          | 87.76         | 81.21         | 80.36              | 89.13          | 90.09         | 80.86         | 83.82              | 91.16          |
+| **BRLG**           | 86.03          | 76.48         | 80.50              | 89.49          | 82.88         | 69.86         | 79.37              | 88.95          | 89.47         | 80.40         | 84.70              | 90.33          |
+| **GraphACL**       | 89.13          | 78.23         | 78.38              | 89.48          | 88.75         | 84.20         | 82.64              | 90.45          | 90.43         | 84.65         | 84.82              | 91.76          |
+| **E-LSTM-D**       | 74.18          | 60.07         | 65.71              | 80.65          | 82.89         | 75.81         | 69.81              | 81.64          | 85.59         | 77.24         | 77.58              | 86.94          |
+| **HighTKF**        | 89.83          | 81.84         | 83.45              | 91.22          | 88.27         | 83.16         | 79.49              | 86.99          | 92.32         | 86.03         | 86.81              | 92.76          |
+| **HIMTKF**         | _90.21_        | _85.20_       | _85.32_            | _92.16_        | 90.64         | 83.62         | 85.87              | 90.27          | _92.43_       | 85.75         | 87.28              | _93.11_        |
+| **LGC-TKF**        | **94.92**      | **90.86**     | **91.70**          | **95.67**      | **96.24**     | **92.66**     | **93.81**          | **96.73**      | **96.87**     | **93.97**     | **94.95**          | **97.35**      |
+
+## Ablation study of different variants of LGC-TKF on three datasets.
+![aba](https://github.com/user-attachments/assets/7abc9ee6-0111-455b-92db-1f952d01289c)
+
+## Performance of hyperparameter $\eta$ in the loss function.
+![eta](https://github.com/user-attachments/assets/97308ff3-5705-435b-929f-42528b411ffb)
+
+## Comparison between the predicted technology nodes representations with the actual flow intensity between different technology domains in 2021.
+![截屏2025-02-02 18 10 01](https://github.com/user-attachments/assets/ad73af40-34c9-41c8-b944-aa6e6013ef0e)
