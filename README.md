@@ -1,7 +1,7 @@
 ## Codes for "From Intra- to Inter-domain: LLM-enhanced Graph Contrastive Learning for Technological Knowledge Flow Prediction"
 
 ## The architecture of LGC-TKF framework
-< img src='frame.png'/>
+<img src='frame.png'/>
 
 ## Dataset
 
