@@ -1,7 +1,16 @@
-Codes for "From Intra- to Inter-domain: LLM-enhanced Graph Contrastive Learning for Technological Knowledge Flow Prediction"
+## Codes for "From Intra- to Inter-domain: LLM-enhanced Graph Contrastive Learning for Technological Knowledge Flow Prediction"
 
 ## The architecture of LGC-TKF framework
 ![frame](https://github.com/user-attachments/assets/764dffb5-4c92-455a-ba24-a0ff46fd03cc)
+
+## Dataset
+
+Raw data:  https://patentsview.org/download/data-download-tables
+
+Processed Data:
+CPC-L3: data/CPC-L3
+CPC-R: data/CPC-R
+CPC-G: data/CPC-G
 
 
 ## Statistics of Datasets from 2010 to 2020, where $\beta$ represents homophily ratio.
