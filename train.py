@@ -16,7 +16,7 @@ from tqdm import tqdm
 import networkx as nx
 import scipy
 from networkx import convert_matrix  
-from LGC_TKF import *
+from LGCL import *
 import warnings
 from ranking_metrics import *
 import datetime
