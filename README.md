@@ -21,5 +21,5 @@ The data used for the CPC-L3 dataset has been placed in the folder above. Due to
 
 ## Overall Performance Evaluation on Different Datasets (%). Notably, OOM indicates the out-of-memory issue.
 
-<img src='Experiment Results.png'/>
+<img src='experiment result.png'/>
 
