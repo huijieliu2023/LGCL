@@ -4,7 +4,7 @@ import argparse
 from data import *
 from importlib import import_module
 from GCN import GCN_predicter
-from LGC_TKF import LGC_TKF
+from LGCL import LGCL
 import torch
 import numpy as np
 import time
@@ -28,7 +28,7 @@ def get_args():
     parser.add_argument('--num_epochs', type=int, default=300, help='Number of training epochs.')
     parser.add_argument('--dim', type=int, default=384, help='Dimensionality of features.')
     parser.add_argument('--dataset', type=str, default='dataL3', choices=['G', 'random', 'dataL3'], help='Dataset to use.')    
-    parser.add_argument('--model_name', type=str, default='LGC_TKF', choices=['LGC_TKF', 'GCN'], help='Model to use.')
+    parser.add_argument('--model_name', type=str, default='LGCL', choices=['LGCL', 'GCN'], help='Model to use.')
     parser.add_argument('--learning_rate', type=float, default=0.001, help='Learning rate for training.')
     parser.add_argument('--conv_hidden', type=int, default=256, help='Hidden size for convolution layers.')
     parser.add_argument('--conv_out', type=int, default=32, help='Output size for convolution layers.')
@@ -123,7 +123,7 @@ if __name__ == '__main__':
         print (endtime - starttime)
 
         starttime = datetime.datetime.now()
-        if config.model_name == 'LGC_TKF':
+        if config.model_name == 'LGCL':
             if config.wo_LLM == False:
                 feature_flow = get_feature_L3(name = 'flow')
                 feature_co = get_feature_L3(name = 'co')
@@ -154,7 +154,7 @@ if __name__ == '__main__':
         print (endtime - starttime)
 
         starttime = datetime.datetime.now()
-        if config.model_name == 'LGC_TKF':
+        if config.model_name == 'LGCL':
             if config.wo_LLM == False:
                 feature_flow = get_feature_g(name = 'flow')
                 feature_co = get_feature_g(name = 'co')
@@ -183,7 +183,7 @@ if __name__ == '__main__':
         print (endtime - starttime)
 
         starttime = datetime.datetime.now()
-        if config.model_name == 'LGC_TKF':
+        if config.model_name == 'LGCL':
             if config.wo_LLM == False:
                 feature_flow = get_feature_random(name = 'flow')
                 feature_co = get_feature_random(name = 'co')
@@ -204,8 +204,8 @@ if __name__ == '__main__':
         print (endtime - starttime)
 
 
-    online_model = LGC_TKF( device,config ).to(device)
-    target_model = LGC_TKF( device,config ).to(device)
+    online_model = LGCL( device,config ).to(device)
+    target_model = LGCL( device,config ).to(device)
 
     writer = SummaryWriter(config.LOG)
 
