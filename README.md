@@ -1,4 +1,4 @@
-## Codes for "Technological Knowledge Flow Forecasting with LLM-enhanced Graph Contrastive Learning"
+## Codes for "Technology Flow Forecasting with LLM-enhanced Graph Contrastive Learning"
 
 ## The architecture of LGCL framework
 <img src='frame.png'/>
