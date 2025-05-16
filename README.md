@@ -11,7 +11,7 @@ Raw Data: [Link](https://patentsview.org/download/data-download-tables)
 The data used for the CPC-L3 dataset has been placed in the folder above. Due to upload capacity limitations, the CPC-R and CPC-G datasets will be made publicly available upon acceptance of the paper.
 
 
-## Statistics of Datasets from 2010 to 2020, where $\beta$ represents homophily ratio.
+## Statistics of Datasets from 2010 to 2023, where $\beta$ represents homophily ratio.
 | Dataset | \# Nodes | \# TKFs | \# TCs | \# Domains | $\beta$ |
 |---------|----------|---------|--------|------------|--------|
 | CPC-L3  | 678      | 60,153  | 32,451 | 9          | 0.26   |
