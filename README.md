@@ -12,7 +12,7 @@ The data used for the CPC-L3 dataset has been placed in the folder above. Due to
 
 
 ## Statistics of Datasets from 2010 to 2023, where $\beta$ represents homophily ratio.
-| Dataset | \# Nodes | \# TKFs | \# TCs | \# Domains | $\beta$ |
+| Dataset | \# Nodes | \# TFs | \# TCs | \# Domains | $\beta$ |
 |---------|----------|---------|--------|------------|--------|
 | CPC-L3  | 678      | 60,153  | 32,451 | 9          | 0.26   |
 | CPC-R   | 20,000   | 460,460 | 125,126| 9          | 0.58   |
