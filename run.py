@@ -5,6 +5,7 @@ from data import *
 from importlib import import_module
 from GCN import GCN_predicter
 from LGCL import LGCL
+from BARA import BARA
 import torch
 import numpy as np
 import time
@@ -128,6 +129,23 @@ if __name__ == '__main__':
                 feature_flow = get_feature_L3(name = 'flow')
                 feature_co = get_feature_L3(name = 'co')
                 feature = [feature_flow,feature_co]
+                feature_o = compare_get_feature_L3()
+                corrected_flow = BARA(
+                                    primary = feature_flow,
+                                    fallback = feature_o,
+                                    device  = device,
+                                    epochs  = 80,
+                                    lr      = 1e-3
+                                )
+                corrected_co = BARA(
+                                    primary = feature_co,
+                                    fallback = feature_o,
+                                    device  = device,
+                                    epochs  = 80,
+                                    lr      = 1e-3
+                                )
+                 feature = [corrected_flow, corrected_co]
+                
             else:
 
                 feature = compare_get_feature_L3()
@@ -159,6 +177,22 @@ if __name__ == '__main__':
                 feature_flow = get_feature_g(name = 'flow')
                 feature_co = get_feature_g(name = 'co')
                 feature = [feature_flow,feature_co]
+                feature_o = compare_get_feature_G()
+                corrected_flow = BARA(
+                                    primary = feature_flow,
+                                    fallback = feature_o,
+                                    device  = device,
+                                    epochs  = 80,
+                                    lr      = 1e-3
+                                )
+                corrected_co = BARA(
+                                    primary = feature_co,
+                                    fallback = feature_o,
+                                    device  = device,
+                                    epochs  = 80,
+                                    lr      = 1e-3
+                                )
+                feature = [corrected_flow, corrected_co] 
             else:
                 feature = compare_get_feature_G()
                 feature = [feature,feature]
@@ -188,6 +222,22 @@ if __name__ == '__main__':
                 feature_flow = get_feature_random(name = 'flow')
                 feature_co = get_feature_random(name = 'co')
                 feature = [feature_flow,feature_co]
+                feature_o = compare_get_feature_random()
+                corrected_flow = BARA(
+                                    primary = feature_flow,
+                                    fallback = feature_o,
+                                    device  = device,
+                                    epochs  = 80,
+                                    lr      = 1e-3
+                                )
+                corrected_co = BARA(
+                                    primary = feature_co,
+                                    fallback = feature_o,
+                                    device  = device,
+                                    epochs  = 80,
+                                    lr      = 1e-3
+                                )
+                feature = [corrected_flow, corrected_co] 
             else:
                 feature = compare_get_feature_random()
                 feature = [feature,feature]
