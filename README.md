@@ -21,5 +21,5 @@ The data used for the AllL3 dataset has been placed in the folder above. Due to 
 
 ## Overall Performance Evaluation on Different Datasets (%). Notably, OOM indicates the out-of-memory issue.
 
-<img src='experiment result.png'/>
+<img src='result.png'/>
 
